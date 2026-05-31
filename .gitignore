@@ -1,0 +1,8 @@
+.DS_Store
+**/.DS_Store
+~$*.pptx
+outputs/
+*.pptx
+*.zip
+AGENTS.md
+wedding_album_onepager_assets/

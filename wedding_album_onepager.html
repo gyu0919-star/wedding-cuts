@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>웨딩 앨범 20페이지 구성안</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --ink: #242528;
+      --muted: #757069;
+      --line: #dad8d0;
+      --paper: #f8f6f1;
+      --card: #ffffff;
+      --sage: #9caf88;
+      --rose: #c99ba0;
+      --pine: #3f4e40;
+      --soft-pine: #eef2ea;
+      --soft-rose: #f7ecee;
+      --shadow: 0 14px 32px rgba(36, 37, 40, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+
+    .hero-main,
+    .panel,
+    .chapter {
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      min-height: 300px;
+      padding: 44px;
+      background: var(--ink);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .kicker {
+      margin: 0 0 16px;
+      color: var(--sage);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1.05;
+      letter-spacing: 0;
+      word-break: keep-all;
+    }
+
+    .subtitle {
+      max-width: 680px;
+      margin: 20px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 17px;
+      word-break: keep-all;
+    }
+
+    .dots {
+      display: flex;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 999px;
+      background: var(--sage);
+    }
+
+    .dot:nth-child(2) {
+      background: var(--rose);
+    }
+
+    .dot:nth-child(3) {
+      background: #8b948a;
+    }
+
+    .panel {
+      padding: 28px;
+    }
+
+    .panel h2,
+    .chapter h2 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.2;
+      letter-spacing: 0;
+      word-break: keep-all;
+    }
+
+    .brief-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .brief-list li {
+      padding: 12px 14px;
+      background: #f5f3ee;
+      border-left: 5px solid var(--sage);
+      color: #3d3b37;
+      font-size: 14px;
+      word-break: keep-all;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0 0 24px;
+    }
+
+    .meta {
+      padding: 18px;
+      background: var(--card);
+      border: 1px solid var(--line);
+    }
+
+    .meta strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--pine);
+      font-size: 14px;
+    }
+
+    .meta span {
+      color: var(--muted);
+      font-size: 13px;
+      word-break: keep-all;
+    }
+
+    .chapter {
+      margin-top: 20px;
+      padding: 28px;
+    }
+
+    .chapter-head {
+      display: flex;
+      gap: 18px;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .chapter-label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .opening .chapter-label,
+    .classic .chapter-label {
+      color: var(--sage);
+    }
+
+    .romantic .chapter-label {
+      color: var(--rose);
+    }
+
+    .mermaid .chapter-label,
+    .ending .chapter-label {
+      color: var(--pine);
+    }
+
+    .cut-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .cut-card {
+      display: grid;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .photo-drop {
+      position: relative;
+      min-height: 210px;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #f0eee8;
+      border: 1px solid var(--line);
+    }
+
+    .photo-drop img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .folder-set {
+      position: absolute;
+      inset: 8px;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+      grid-auto-rows: 96px;
+      gap: 6px;
+      align-content: start;
+      overflow-y: auto;
+      padding-right: 2px;
+      scrollbar-width: thin;
+    }
+
+    .folder-set.count-1 {
+      inset: 0;
+      grid-template-columns: 1fr;
+      grid-auto-rows: 100%;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .folder-set.count-2,
+    .folder-set.count-4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .folder-thumb {
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+      background: #e8e3db;
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      text-decoration: none;
+    }
+
+    .folder-thumb img {
+      transition: transform 160ms ease;
+    }
+
+    .folder-thumb:hover img {
+      transform: scale(1.025);
+    }
+
+    .cut-card.has-image .placeholder {
+      display: none;
+    }
+
+    .placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #aaa59b;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .placeholder b {
+      display: block;
+      margin-bottom: 6px;
+      color: #9f9a91;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .cut-no {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      min-width: 34px;
+      height: 34px;
+      padding: 0 8px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--sage);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .romantic .cut-no {
+      background: var(--rose);
+    }
+
+    .mermaid .cut-no,
+    .ending .cut-no {
+      background: var(--pine);
+    }
+
+    .cut-title {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.25;
+      letter-spacing: 0;
+      word-break: keep-all;
+    }
+
+    .cut-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      word-break: keep-all;
+    }
+
+    .tools {
+      display: flex;
+      gap: 8px;
+      min-height: 29px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .tools button {
+      display: none;
+    }
+
+    .size-readout {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .flow-item {
+      padding: 14px;
+      background: var(--soft-pine);
+      border: 1px solid #d9dfd2;
+      font-size: 13px;
+      color: #3f4e40;
+      word-break: keep-all;
+    }
+
+    .flow-item:nth-child(3) {
+      background: var(--soft-rose);
+      border-color: #ead0d5;
+      color: #8d5961;
+    }
+
+    .flow-item:nth-child(4),
+    .flow-item:nth-child(5) {
+      background: #edf0ec;
+      border-color: #ccd4ca;
+      color: var(--pine);
+    }
+
+    .footer-note {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .meta-grid,
+      .flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 20px, 1180px);
+        padding-top: 10px;
+      }
+
+      .hero-main,
+      .panel,
+      .chapter {
+        padding: 22px;
+      }
+
+      .meta-grid,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .chapter-head {
+        display: block;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero-main,
+      .panel,
+      .chapter,
+      .meta {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      .tools,
+      .footer-note {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-main">
+        <p class="kicker">Wedding Album · 20P Shoot Plan</p>
+        <h1 id="page-title">20페이지 앨범 구성안</h1>
+        <p class="subtitle">스튜디오와 야외에서 신랑·신부 둘만 촬영한다. 각 페이지마다 대표 컷 1장과 예비 컷 1~2장을 확보해 최소 30컷 이상 셀렉 가능하게 남긴다.</p>
+        <div class="dots" aria-hidden="true">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2>촬영 전제</h2>
+        <ul class="brief-list">
+          <li>본식 촬영이 아니라 스튜디오·야외 웨딩 촬영</li>
+          <li>가족·동행 컷 없이 신랑신부 중심으로 구성</li>
+          <li>부케·반지·의상·액세서리만 단독으로 찍는 컷 제외</li>
+          <li>부케 디테일은 신부의 손, 상반신, 표정이 함께 보이게 촬영</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="meta-grid" aria-label="앨범 흐름">
+      <div class="meta"><strong>오프닝</strong><span>LOOK1 정면 액자컷, LOOK1 베일컷</span></div>
+      <div class="meta"><strong>클래식</strong><span>신부 단독, 신랑신부 정면, 창가 실루엣, 부케 디테일, 손잡는 컷</span></div>
+      <div class="meta"><strong>화사</strong><span>웃는 컷, 걷는 컷, 뒤돌아보기, 신부 단독, 꽃, 자연광</span></div>
+      <div class="meta"><strong>머메이드·엔딩</strong><span>실루엣, 흑백, 영화포스터, 야경, 역광, 롱베일, 뒷모습</span></div>
+    </section>
+
+    <section class="chapter opening">
+      <div class="chapter-head">
+        <div>
+          <span class="chapter-label">Opening</span>
+          <h2>오프닝</h2>
+        </div>
+        <span class="chapter-label">2 pages</span>
+      </div>
+      <div class="cut-grid">
+        <article class="cut-card" data-cut="01" data-slug="look1-frame">
+          <label class="photo-drop">
+            
+            <span class="cut-no">1</span>
+            <span class="placeholder"><span>이미지 불러오는 중</span></span>
+          </label>
+          <h3 class="cut-title">LOOK1 정면 액자컷</h3>
+          <p class="cut-note">오프닝 1p · 가장 먼저 확보</p>
+          <div class="tools"><span class="size-readout"></span></div>
+        </article>
+        <article class="cut-card" data-cut="02" data-slug="look1-veil">
+          <label class="photo-drop">
+            
+            <span class="cut-no">2</span>
+            
+            <span class="placeholder"><span>이미지 불러오는 중</span></span>
+          </label>
+          <h3 class="cut-title">LOOK1 베일컷</h3>
+          <p class="cut-note">오프닝 2p · 웨딩 무드</p>
+          <div class="tools"><span class="size-readout"></span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter classic">
+      <div class="chapter-head">
+        <div>
+          <span class="chapter-label">Classic</span>
+          <h2>챕터 1 · 클래식</h2>
+        </div>
+        <span class="chapter-label">5 pages</span>
+      </div>
+      <div class="cut-grid">
+        <article class="cut-card" data-cut="03" data-slug="bride-solo-classic">
+          <label class="photo-drop"><span class="cut-no">3</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label>
+          <h3 class="cut-title">신부 단독</h3><p class="cut-note">클래식 3p</p>
+          <div class="tools"><span class="size-readout"></span></div>
+        </article>
+        <article class="cut-card" data-cut="04" data-slug="couple-front">
+          <label class="photo-drop"><span class="cut-no">4</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label>
+          <h3 class="cut-title">신랑신부 정면</h3><p class="cut-note">클래식 4p</p>
+          <div class="tools"><span class="size-readout"></span></div>
+        </article>
+        <article class="cut-card" data-cut="05" data-slug="window-silhouette">
+          <label class="photo-drop"><span class="cut-no">5</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label>
+          <h3 class="cut-title">창가 실루엣</h3><p class="cut-note">클래식 5p</p>
+          <div class="tools"><span class="size-readout"></span></div>
+        </article>
+        <article class="cut-card" data-cut="06" data-slug="bouquet-detail-person">
+          <label class="photo-drop"><span class="cut-no">6</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label>
+          <h3 class="cut-title">부케 디테일</h3><p class="cut-note">인물 포함 · 단독 부케 제외</p>
+          <div class="tools"><span class="size-readout"></span></div>
+        </article>
+        <article class="cut-card" data-cut="07" data-slug="holding-hands">
+          <label class="photo-drop"><span class="cut-no">7</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label>
+          <h3 class="cut-title">손잡는 컷</h3><p class="cut-note">클래식 7p</p>
+          <div class="tools"><span class="size-readout"></span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="chapter romantic">
+      <div class="chapter-head">
+        <div>
+          <span class="chapter-label">Romantic</span>
+          <h2>챕터 2 · 화사</h2>
+        </div>
+        <span class="chapter-label">6 pages</span>
+      </div>
+      <div class="cut-grid">
+        <article class="cut-card" data-cut="08" data-slug="smiling"><label class="photo-drop"><span class="cut-no">8</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label><h3 class="cut-title">웃는 컷</h3><p class="cut-note">화사 8p</p><div class="tools"><span class="size-readout"></span></div></article>
+        <article class="cut-card" data-cut="09" data-slug="walking"><label class="photo-drop"><span class="cut-no">9</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label><h3 class="cut-title">걷는 컷</h3><p class="cut-note">화사 9p</p><div class="tools"><span class="size-readout"></span></div></article>
+        <article class="cut-card" data-cut="10" data-slug="looking-back"><label class="photo-drop"><span class="cut-no">10</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label><h3 class="cut-title">뒤돌아보는 컷</h3><p class="cut-note">화사 10p</p><div class="tools"><span class="size-readout"></span></div></article>
+        <article class="cut-card" data-cut="11" data-slug="bride-solo-romantic"><label class="photo-drop"><span class="cut-no">11</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label><h3 class="cut-title">신부 단독</h3><p class="cut-note">화사 11p</p><div class="tools"><span class="size-readout"></span></div></article>
+        <article class="cut-card" data-cut="12" data-slug="with-flowers"><label class="photo-drop"><span class="cut-no">12</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label><h3 class="cut-title">꽃과 함께</h3><p class="cut-note">화사 12p</p><div class="tools"><span class="size-readout"></span></div></article>
+        <article class="cut-card" data-cut="13" data-slug="natural-light-couple"><label class="photo-drop"><span class="cut-no">13</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label><h3 class="cut-title">자연광 커플</h3><p class="cut-note">화사 13p</p><div class="tools"><span class="size-readout"></span></div></article>
+      </div>
+    </section>
+
+    <section class="chapter mermaid">
+      <div class="chapter-head">
+        <div>
+          <span class="chapter-label">Mermaid</span>
+          <h2>챕터 3 · 머메이드</h2>
+        </div>
+        <span class="chapter-label">6 pages</span>
+      </div>
+      <div class="cut-grid">
+        <article class="cut-card" data-cut="14" data-slug="side-silhouette"><label class="photo-drop"><span class="cut-no">14</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label><h3 class="cut-title">측면 실루엣</h3><p class="cut-note">머메이드 14p</p><div class="tools"><span class="size-readout"></span></div></article>
+        <article class="cut-card" data-cut="15" data-slug="black-white-profile"><label class="photo-drop"><span class="cut-no">15</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label><h3 class="cut-title">흑백 프로필</h3><p class="cut-note">머메이드 15p</p><div class="tools"><span class="size-readout"></span></div></article>
+        <article class="cut-card" data-cut="16" data-slug="movie-poster"><label class="photo-drop"><span class="cut-no">16</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label><h3 class="cut-title">영화포스터 컷</h3><p class="cut-note">머메이드 16p</p><div class="tools"><span class="size-readout"></span></div></article>
+        <article class="cut-card" data-cut="17" data-slug="night-full-body"><label class="photo-drop"><span class="cut-no">17</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label><h3 class="cut-title">야경 전신</h3><p class="cut-note">머메이드 17p</p><div class="tools"><span class="size-readout"></span></div></article>
+        <article class="cut-card" data-cut="18" data-slug="backlit-couple"><label class="photo-drop"><span class="cut-no">18</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label><h3 class="cut-title">역광 커플</h3><p class="cut-note">머메이드 18p</p><div class="tools"><span class="size-readout"></span></div></article>
+        <article class="cut-card" data-cut="19" data-slug="long-veil"><label class="photo-drop"><span class="cut-no">19</span><span class="placeholder"><span>이미지 불러오는 중</span></span></label><h3 class="cut-title">롱베일</h3><p class="cut-note">머메이드 19p</p><div class="tools"><span class="size-readout"></span></div></article>
+      </div>
+    </section>
+
+    <section class="chapter ending">
+      <div class="chapter-head">
+        <div>
+          <span class="chapter-label">Ending</span>
+          <h2>엔딩</h2>
+        </div>
+        <span class="chapter-label">1 page</span>
+      </div>
+      <div class="cut-grid">
+        <article class="cut-card" data-cut="20" data-slug="walking-away">
+          <label class="photo-drop">
+            
+            <span class="cut-no">20</span>
+            <span class="placeholder"><span>이미지 불러오는 중</span></span>
+          </label>
+          <h3 class="cut-title">둘이 걸어가는 뒷모습</h3>
+          <p class="cut-note">엔딩 20p · 마지막 여운</p>
+          <div class="tools"><span class="size-readout"></span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top: 20px;">
+      <h2>셀렉 흐름</h2>
+      <div class="flow">
+        <div class="flow-item">1. 20페이지 흐름 먼저 채우기</div>
+        <div class="flow-item">2. 페이지별 대표 컷 1장 선택</div>
+        <div class="flow-item">3. 예비 컷 1~2장 확보</div>
+        <div class="flow-item">4. 사물 단독 컷 제외</div>
+        <div class="flow-item">5. 최소 30컷 이상 후보 유지</div>
+      </div>
+      <p class="footer-note">이미지는 <code>cut_images_manifest.json</code>에 기록된 <code>컷별_이미지</code> 하위 폴더 목록에서 자동으로 불러온다. 폴더에 이미지를 추가하거나 제거한 뒤 manifest를 다시 만들면 현재 폴더 상태가 반영된다.</p>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const MANIFEST_URL = "cut_images_manifest.json";
+      const IMAGE_PATTERN = /\.(jpe?g|png|webp|gif|avif)$/i;
+      const collator = new Intl.Collator("ko", { numeric: true, sensitivity: "base" });
+      const cards = [...document.querySelectorAll(".cut-card")];
+
+      function clearCard(card) {
+        card.querySelectorAll(".sample-set, .uploaded-set, .folder-set").forEach((node) => node.remove());
+        card.querySelector(".photo-drop")?.classList.remove("has-initial", "dragging");
+      }
+
+      function setStatus(card, message, hasImages = false) {
+        const placeholder = card.querySelector(".placeholder span");
+        const readout = card.querySelector(".size-readout");
+        card.classList.toggle("has-image", hasImages);
+        if (placeholder) placeholder.textContent = hasImages ? "" : message;
+        if (readout) readout.textContent = message;
+      }
+
+      function renderImages(card, folderName, imageUrls) {
+        const drop = card.querySelector(".photo-drop");
+        const title = card.querySelector(".cut-title")?.textContent.trim() || "샘플";
+        const set = document.createElement("span");
+        set.className = "folder-set count-" + Math.min(4, Math.max(1, imageUrls.length));
+        set.setAttribute("aria-label", title + " 폴더 이미지");
+
+        imageUrls.forEach((url, index) => {
+          const link = document.createElement("a");
+          link.className = "folder-thumb";
+          link.href = url;
+          link.target = "_blank";
+          link.rel = "noopener";
+
+          const image = new Image();
+          image.src = url;
+          image.alt = title + " " + (index + 1);
+          image.loading = "lazy";
+          image.decoding = "async";
+
+          link.appendChild(image);
+          set.appendChild(link);
+        });
+
+        drop.appendChild(set);
+        setStatus(card, imageUrls.length + "장 · " + folderName, true);
+      }
+
+      function loadCard(card, manifestByCut) {
+        clearCard(card);
+        setStatus(card, "이미지 불러오는 중");
+        const entry = manifestByCut.get(card.dataset.cut);
+
+        if (!entry) {
+          setStatus(card, "폴더 없음");
+          return;
+        }
+
+        const imageUrls = entry.images
+          .filter((url) => IMAGE_PATTERN.test(url))
+          .sort((a, b) => collator.compare(a, b));
+
+        if (!imageUrls.length) {
+          setStatus(card, "폴더에 이미지 없음");
+          return;
+        }
+
+        renderImages(card, entry.folder, imageUrls);
+      }
+
+      async function loadFolderImages() {
+        cards.forEach((card) => {
+          clearCard(card);
+          setStatus(card, "이미지 불러오는 중");
+        });
+
+        try {
+          const response = await fetch(MANIFEST_URL, { cache: "no-store" });
+          if (!response.ok) throw new Error("이미지 목록을 읽지 못했습니다.");
+          const manifest = await response.json();
+          const manifestByCut = new Map((manifest.cuts || []).map((entry) => [entry.cut, entry]));
+          cards.forEach((card) => loadCard(card, manifestByCut));
+        } catch (error) {
+          cards.forEach((card) => setStatus(card, error.message || "이미지 목록을 읽지 못했습니다."));
+        }
+      }
+
+      loadFolderImages();
+    })();
+  </script>
+
+</body>
+</html>
